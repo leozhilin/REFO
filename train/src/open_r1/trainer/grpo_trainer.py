@@ -210,6 +210,8 @@ class Qwen2VLGRPOTrainer(Trainer):
                 )
 
         if peft_config is not None:
+            print(peft_config)
+            model.enable_input_require_grads()
             model = get_peft_model(model, peft_config)
 
         # # Reference model
@@ -387,7 +389,7 @@ class Qwen2VLGRPOTrainer(Trainer):
         import numpy as np
         video_ids = [x["video_id"] for x in inputs]
         videos = []
-        MAX_FRAMES = 25
+        MAX_FRAMES = 16
         for video_id in video_ids:
             video_path = os.path.join("data/UrbanVideo-Bench/videos", video_id)
             try:

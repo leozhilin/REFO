@@ -1,14 +1,13 @@
+
+## 环境配置
 conda create -n refo python=3.11 -y
 conda activate refo
-
 
 pip install transformers trl lighteval -i https://pypi.tuna.tsinghua.edu.cn/simple/
 pip install qwen-vl-utils[decord]==0.0.8 -i https://pypi.tuna.tsinghua.edu.cn/simple/
 pip install wandb -i https://pypi.tuna.tsinghua.edu.cn/simple/
 pip install datasets -i https://pypi.tuna.tsinghua.edu.cn/simple/
 pip install accelerate -i https://pypi.tuna.tsinghua.edu.cn/simple/
-
-
 
 pip install --upgrade numpy scipy -i https://pypi.tuna.tsinghua.edu.cn/simple/
 pip install torchvision -i https://pypi.tuna.tsinghua.edu.cn/simple/
@@ -49,3 +48,6 @@ pip install flash_attn-2.8.0.post2+cu12torch2.7cxx11abiTRUE-cp311-cp311-linux_x8
 
 暂时要这样才能正常运行，因为visual-rft是在原来的环境下运行的，会指向原来的open_r1目录
 export PYTHONPATH=$(pwd):$PYTHON
+
+## wandb连不上
+export WANDB_BASE_URL=https://api.wandb-cn.top

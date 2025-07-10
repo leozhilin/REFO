@@ -39,7 +39,12 @@ torchrun --nproc_per_node="8" \
     --run_name Qwen2_5-VL-3B_GRPO_urbanvideo \
     --save_steps 100 \
     --save_only_model true \
-    --num_generations 2 \
+    --num_generations 4 \
     --gradient_checkpointing True \
+    --use_peft true \
+    --lora_dropout 0.1 \
+    --lora_r 16 \
+    --lora_alpha 16 \
+    --lora_target_modules q_proj k_proj v_proj o_proj gate_proj up_proj down_proj \
     # --use_vllm \
     # --vllm_device cuda:5
